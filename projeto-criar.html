@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Projeto - Trabalho 3</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/crud/criar.js"></script>
+</head>
+
+<body>
+    <meu-header></meu-header>
+    <meu-nav ativo="criar"></meu-nav>
+
+    <main>
+        <section class="crud">
+            <h2>Cadastrar Projeto</h2>
+            <p class="crud-ajuda">Campos marcados com * são obrigatórios.</p>
+            <div id="mensagem" class="mensagem">Preencha os dados para cadastrar um novo projeto.</div>
+            <form id="projetoForm" class="crud-formulario">
+                <div class="form-group">
+                    <label for="titulo">Título *</label>
+                    <input type="text" id="titulo" required minlength="3" maxlength="100" placeholder="Ex.: Site de receitas">
+                </div>
+                <div class="form-group">
+                    <label for="descricao">Descrição *</label>
+                    <textarea id="descricao" required maxlength="500" rows="4" placeholder="Conte em poucas linhas o que o projeto faz"></textarea>
+                </div>
+                <div class="form-linha">
+                    <div class="form-group">
+                        <label for="tecnologia">Tecnologia principal *</label>
+                        <select id="tecnologia" required>
+                            <option value="">Selecione...</option>
+                            <option>HTML e CSS</option>
+                            <option>JavaScript</option>
+                            <option>Web Components</option>
+                            <option>Java</option>
+                            <option>Python</option>
+                            <option>Banco de Dados</option>
+                            <option>Outra</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Situação</label>
+                        <select id="status">
+                            <option>Planejado</option>
+                            <option selected>Em andamento</option>
+                            <option>Concluído</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-linha">
+                    <div class="form-group">
+                        <label for="dataConclusao">Data de conclusão</label>
+                        <input type="date" id="dataConclusao">
+                    </div>
+                    <div class="form-group">
+                        <label for="link">Link do projeto</label>
+                        <input type="url" id="link" maxlength="300" placeholder="https://...">
+                    </div>
+                </div>
+                <div class="form-botoes">
+                    <button type="submit" id="submitBtn">Cadastrar projeto</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <meu-footer></meu-footer>
+</body>
+
+</html>

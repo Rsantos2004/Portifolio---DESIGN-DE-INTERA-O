@@ -1,0 +1,345 @@
+/* Layout geral da página */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Cabeçalho e rodapé compartilham a mesma base visual */
+header, footer {
+    background-color: var(--primary-color);
+    color: var(--header-text);
+    text-align: center;
+    padding: var(--spacing-default);
+}
+
+footer {
+    margin-top: auto;
+}
+
+.footer-autor {
+    font-weight: bold;
+}
+
+.footer-info {
+    font-size: 13px;
+    color: #bdc3c7;
+    margin-top: 4px;
+}
+
+/* Menu de navegação */
+.main-nav {
+    background-color: var(--secondary-color);
+    padding: 10px;
+}
+
+.main-nav ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.main-nav a {
+    color: #fff;
+}
+
+/* Conteúdo principal */
+main {
+    flex: 1;
+    padding: var(--spacing-default);
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.presentation-section {
+    text-align: center;
+}
+
+.presentation-section img {
+    max-width: 100%;
+    margin-top: 15px;
+}
+
+/* Página do editor: formulário e preview lado a lado no desktop */
+.editor-container {
+    display: grid;
+    gap: var(--spacing-default);
+}
+
+@media (min-width: 800px) {
+    .editor-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.editor-form, .editor-preview {
+    background-color: #fff;
+    padding: var(--spacing-default);
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+}
+
+/* Campos do formulário */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input:not([type="color"]),
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: var(--header-bg);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+}
+
+/* Menu gerado (preview) */
+#generatedMenuContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    border: 1px dashed #ccc;
+    min-height: 300px;
+}
+
+#generatedImage {
+    max-width: 180px;
+}
+
+#generatedMenuList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+}
+
+/* Web components do site: tags customizadas começam como "inline", então viram bloco */
+meu-header, meu-nav, meu-footer {
+    display: block;
+}
+
+meu-footer {
+    margin-top: auto;
+}
+
+/* Link da página atual no menu */
+.main-nav a.ativo {
+    font-weight: bold;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+/* Cartões de trabalhos da página inicial (web component com slots) */
+.trabalhos-section {
+    margin-top: 30px;
+}
+
+.trabalhos-section h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.lista-cartoes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--spacing-default);
+}
+
+/* ============================================================
+   Trabalho 3 - CRUD de Projetos (consultar, criar, alterar, excluir)
+   ============================================================ */
+
+.crud h2 {
+    color: var(--primary-color);
+}
+
+.crud-ajuda {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* Mensagens de sucesso e de erro */
+.mensagem {
+    margin: 15px 0;
+    padding: 12px 15px;
+    border-left: 5px solid #27ae60;
+    border-radius: var(--border-radius);
+    background-color: #e8f8f0;
+    color: #1e7e4a;
+    font-weight: bold;
+}
+
+.mensagem.erro {
+    border-left-color: #c0392b;
+    background-color: #fdecea;
+    color: #922b21;
+}
+
+/* Esconde o formulário ou a lista (usado na página de alterar) */
+.oculto {
+    display: none;
+}
+
+/* Busca e filtro da consulta */
+.crud-filtros {
+    display: grid;
+    gap: 0 var(--spacing-default);
+    margin-bottom: var(--spacing-default);
+    padding: var(--spacing-default) var(--spacing-default) 5px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+}
+
+@media (min-width: 700px) {
+    .crud-filtros {
+        grid-template-columns: 2fr 1fr;
+    }
+}
+
+/* Cartões dos projetos */
+.lista-projetos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--spacing-default);
+}
+
+.projeto {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: var(--spacing-default);
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-top: 5px solid var(--header-bg);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.projeto-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.projeto-topo h3 {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    overflow-wrap: anywhere;
+}
+
+.projeto-status {
+    flex-shrink: 0;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background-color: #eaf2f8;
+    color: #1f618d;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.projeto-info {
+    color: var(--header-bg);
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.projeto-descricao {
+    flex: 1;
+    overflow-wrap: anywhere;
+}
+
+.projeto-link {
+    align-self: flex-start;
+    color: var(--header-bg);
+    font-weight: bold;
+}
+
+.projeto-link:hover {
+    text-decoration: underline;
+}
+
+.projeto-acoes {
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+}
+
+.btn-excluir {
+    background-color: #c0392b;
+}
+
+.btn-excluir:hover {
+    background-color: #922b21;
+}
+
+.btn-editar:hover {
+    background-color: var(--primary-color);
+}
+
+/* Formulário de cadastro e alteração */
+.crud-formulario {
+    max-width: 720px;
+    margin-bottom: var(--spacing-default);
+    padding: var(--spacing-default);
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+}
+
+.crud-formulario.oculto {
+    display: none;
+}
+
+.form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font: inherit;
+    resize: vertical;
+}
+
+@media (min-width: 600px) {
+    .form-linha {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 var(--spacing-default);
+    }
+}
+
+.form-botoes {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-secundario {
+    background-color: #7f8c8d;
+}

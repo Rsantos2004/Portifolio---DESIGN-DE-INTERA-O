@@ -1,0 +1,11 @@
+/* css/variables.css */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #34495e;
+    --text-color: #333333;
+    --bg-color: #f8f9fa;
+    --header-bg: #2980b9;
+    --header-text: #ffffff;
+    --spacing-default: 20px;
+    --border-radius: 5px;
+}

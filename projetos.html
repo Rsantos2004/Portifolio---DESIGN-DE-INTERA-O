@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultar Projetos - Trabalho 3</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/crud/consultar.js"></script>
+</head>
+
+<body>
+    <meu-header></meu-header>
+    <meu-nav ativo="projetos"></meu-nav>
+
+    <main>
+        <section class="crud">
+            <h2>Consultar Projetos</h2>
+            <p class="crud-ajuda">Veja os projetos do portfólio. Use a busca e o filtro para encontrar um projeto.</p>
+            <div id="mensagem" class="mensagem">Carregando projetos...</div>
+            <form id="formBusca" class="crud-filtros" role="search">
+                <div class="form-group">
+                    <label for="busca">Buscar pelo título</label>
+                    <input type="search" id="busca" placeholder="Ex.: editor">
+                </div>
+                <div class="form-group">
+                    <label for="filtroTecnologia">Tecnologia</label>
+                    <select id="filtroTecnologia">
+                        <option value="">Todas</option>
+                        <option>HTML e CSS</option>
+                        <option>JavaScript</option>
+                        <option>Web Components</option>
+                        <option>Java</option>
+                        <option>Python</option>
+                        <option>Banco de Dados</option>
+                        <option>Outra</option>
+                    </select>
+                </div>
+            </form>
+
+            <div id="projetosContainer" class="lista-projetos"></div>
+        </section>
+    </main>
+
+    <meu-footer></meu-footer>
+</body>
+
+</html>

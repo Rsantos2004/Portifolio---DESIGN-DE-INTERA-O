@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor de Menus - Trabalho 1</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="module" src="js/main.js"></script>
+</head>
+<body>
+    <meu-header></meu-header>
+    <meu-nav ativo="editor"></meu-nav>
+
+    <main>
+        <div class="editor-container">
+            <!-- Formulário de Edição -->
+            <section class="editor-form">
+                <h2>Formulário de Edição</h2>
+                <form id="menuEditorForm">
+
+                    <div class="form-group">
+                        <label for="imgInput">Inserir Figura:</label>
+                        <input type="file" id="imgInput" accept="image/*">
+                        <button type="button" id="removeImgBtn" disabled>Remover Imagem</button>
+                    </div>
+                    <hr><br>
+
+                    <div class="form-group">
+                        <label for="itemText">Novo Item de Menu:</label>
+                        <input type="text" id="itemText" placeholder="Digite o texto do item">
+                        <button type="button" id="addItemBtn">Adicionar Item</button>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="itemNum">Item a Editar/Remover (nº):</label>
+                        <input type="number" id="itemNum" min="1" value="1" disabled>
+                        <input type="text" id="itemNewText" placeholder="Novo texto" disabled>
+                        <button type="button" id="editItemBtn" disabled>Editar Texto</button>
+                        <button type="button" id="removeItemBtn" disabled>Remover Item</button>
+                    </div>
+                    <hr><br>
+
+                    <div class="form-group">
+                        <label for="menuBg">Cor de Fundo do Menu:</label>
+                        <input type="color" id="menuBg" value="#ffffff">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="itemBg">Cor de Fundo dos Itens:</label>
+                        <input type="color" id="itemBg" value="#2980b9">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="textColor">Cor do Texto:</label>
+                        <input type="color" id="textColor" value="#ffffff">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fontSize">Tamanho da Fonte (px):</label>
+                        <input type="range" id="fontSize" min="12" max="30" value="16">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="spacing">Espaçamento dos Itens (px):</label>
+                        <input type="range" id="spacing" min="5" max="40" value="15">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="alignment">Distribuição dos Itens:</label>
+                        <select id="alignment">
+                            <option value="flex-start">À Esquerda</option>
+                            <option value="center" selected>Centralizado</option>
+                            <option value="space-between">Espaçado</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="borderStyle">Estilo da Borda:</label>
+                        <select id="borderStyle">
+                            <option value="none">Sem Borda</option>
+                            <option value="solid" selected>Sólida</option>
+                            <option value="dashed">Tracejada</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="borderColor">Cor da Borda:</label>
+                        <input type="color" id="borderColor" value="#2c3e50">
+                    </div>
+
+                </form>
+            </section>
+
+            <!-- Menu Gerado -->
+            <section class="editor-preview">
+                <h2>Visualização do Menu</h2>
+                <div id="generatedMenuContainer">
+                    <ul id="generatedMenuList"></ul>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <meu-footer></meu-footer>
+
+    <script type="module" src="js/editor.js"></script>
+</body>
+</html>

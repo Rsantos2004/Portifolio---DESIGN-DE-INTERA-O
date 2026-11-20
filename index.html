@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interação Web - Apresentação</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="module" src="js/main.js"></script>
+</head>
+
+<body>
+    <meu-header></meu-header>
+    <meu-nav ativo="index"></meu-nav>
+
+    <main>
+        <section class="presentation-section">
+            <h2>Sobre o Site</h2>
+            <p>Este é um site que conterá os trabalhos da disciplina de Interação Web. Ao longo do semestre, os demais
+                trabalhos da disciplina serão adicionados a este site.</p>
+
+            <img src="img/Design-de-interface-1.png" alt="Ilustração de Design de Interface">
+        </section>
+
+        <section class="trabalhos-section">
+            <h2>Trabalhos</h2>
+            <!-- Cada cartão usa o mesmo web component; o conteúdo entra pelos slots -->
+            <div class="lista-cartoes">
+                <cartao-trabalho link="editor.html" texto-link="Abrir editor">
+                    <span slot="titulo">Trabalho 1 — Editor de Menus</span>
+                    <span slot="descricao">Formulário que cria e personaliza um menu em tempo real: itens, cores,
+                        fonte, espaçamento, bordas e imagem.</span>
+                </cartao-trabalho>
+
+                <cartao-trabalho link="prova.html" texto-link="Fazer a prova">
+                    <span slot="titulo">Trabalho 2 — Prova On-line</span>
+                    <span slot="descricao">Prova de múltipla escolha feita como web component, com correção
+                        automática, nota e gabarito.</span>
+                </cartao-trabalho>
+
+                <cartao-trabalho link="projetos.html" texto-link="Ver projetos">
+                    <span slot="titulo">Trabalho 3 — CRUD de Projetos</span>
+                    <span slot="descricao">Cadastro, consulta, edição e exclusão de projetos em uma tabela do
+                        Supabase, usando só fetch na API REST.</span>
+                </cartao-trabalho>
+            </div>
+        </section>
+    </main>
+
+    <meu-footer></meu-footer>
+</body>
+
+</html>
